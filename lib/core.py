@@ -12,8 +12,10 @@ from numba import jit
 
 
 def img16to8(img):
+    """
+    convert a 16 bit img to uint8
+    """
    img_8 = (img/65535) * 255
-   
    return img_8.astype('uint8')
 
 def imshow(img):
