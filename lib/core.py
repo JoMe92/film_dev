@@ -6,6 +6,7 @@ Created on Fri Dec  4 23:05:56 2020
 """
 import cv2
 import numpy as np
+from os import scandir 
 from matplotlib import pyplot as plt
 import core as co
 from numba import jit
