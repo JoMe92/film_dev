@@ -19,59 +19,8 @@ from os.path import isfile, join
 
 # path = "D:/OneDrive/12Programming/FilmDevelopment/img14.tif"
 path = "F:/01Img/Analog-Photography/2010-05-26-Skatepark/Python_test"
-folder = path
 
-
-from os import scandir
-
-
-
-
-
-def load_images_from_folder(folder): 
-    images = [] 
-    img_name = []
-    
-    
-    for entry in scandir(folder):
-        if entry.is_dir():
-            # do code or skip
-            print("dir")
-            continue
-        filename  =  entry.name
-      
-        if '.tif' in filename: 
-             print("Load Tif Files")
-             img = cv2.imread(os.path.join(folder,filename)) 
-             # ret, images = cv2.imreadmulti(os.path.join(folder,filename), [-1], cv2.IMREAD_UNCHANGED)
-             # img = images[1]
-             
-        if '.tiff' in filename: 
-             print("Load Tiff Files")
-             img = cv2.imread(os.path.join(folder,filename)) 
-             
-        if '.dng' in filename: 
-            print("Load DNG Files")
-            raw_neg = rawpy.imread(os.path.join(folder,filename))
-            lin16bit = raw_neg.postprocess(gamma=(1,1),no_auto_bright=True, output_bps=16)
-            r,g,b = cv2.split(lin16bit)
-            img = cv2.merge((b,g,r))
-            # img = imag1es[1]
-            
-        if '.RAF' in filename: 
-            print("Load RAF Files")
-            raw_neg = rawpy.imread(os.path.join(folder,filename))
-            lin16bit = raw_neg.postprocess(gamma=(1,1),no_auto_bright=True, output_bps=16)
-            r,g,b = cv2.split(lin16bit)
-            img = cv2.merge((b,g,r))
-            
-        if img is not None: 
-            images.append(img) 
-            img_name.append(filename)
-            
-    return images, img_name
-
-images, img_name = load_images_from_folder(path)
+images, img_name = core.load_images_from_folder(path)
 #%%
 # =============================================================================
 # path = 'D:/Bilder/Negativ/2010-01-05/Img01.dng'
