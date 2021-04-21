@@ -149,3 +149,45 @@ def adjust_gamma(image, gamma=1.0):
     img = apply_lut(table,image)
     
     return  img
+
+def load_images_from_folder(folder): 
+    images = [] 
+    img_name = []
+        
+    for entry in scandir(folder):
+        if entry.is_dir():
+            # do code or skip
+            print("dir")
+            continue
+        filename  =  entry.name
+      
+        if '.tif' in filename: 
+             print("Load Tif Files")
+             img = cv2.imread(os.path.join(folder,filename)) 
+             # ret, images = cv2.imreadmulti(os.path.join(folder,filename), [-1], cv2.IMREAD_UNCHANGED)
+             # img = images[1]
+             
+        if '.tiff' in filename: 
+             print("Load Tiff Files")
+             img = cv2.imread(os.path.join(folder,filename)) 
+             
+        if '.dng' in filename: 
+            print("Load DNG Files")
+            raw_neg = rawpy.imread(os.path.join(folder,filename))
+            lin16bit = raw_neg.postprocess(gamma=(1,1),no_auto_bright=True, output_bps=16)
+            r,g,b = cv2.split(lin16bit)
+            img = cv2.merge((b,g,r))
+            # img = imag1es[1]
+            
+        if '.RAF' in filename: 
+            print("Load RAF Files")
+            raw_neg = rawpy.imread(os.path.join(folder,filename))
+            lin16bit = raw_neg.postprocess(gamma=(1,1),no_auto_bright=True, output_bps=16)
+            r,g,b = cv2.split(lin16bit)
+            img = cv2.merge((b,g,r))
+            
+        if img is not None: 
+            images.append(img) 
+            img_name.append(filename)
+            
+    return images, img_name
