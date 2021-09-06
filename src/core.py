@@ -4,24 +4,43 @@ Created on Fri Dec  4 23:05:56 2020
 
 @author: jonas
 """
+
 import cv2
 import numpy as np
 import os
 from os import scandir 
 from os import listdir
 from matplotlib import pyplot as plt
-import core as co
+import src.core as co
 from numba import jit
 
 
 def img16to8(img):
+    """convert a 16 bit img to 8-bit image
+
+    Parameter
+    ------------
+    img : np.array uint-16
+        16-bit image 
+    
+    Return
+    -------
+    img_8 : np.array uint-8
+        8 - bit image file
+
     """
-    convert a 16 bit img to uint8
-    """
-   img_8 = (img/65535) * 255
-   return img_8.astype('uint8')
+    img_8 = (img/65535) * 255
+    return img_8.astype('uint8')
 
 def imshow(img):
+    """show th image in external window
+
+    Parameter
+    ------------
+    img : 
+        8-bit or 16-bit image 
+
+    """
     if img.dtype == "uint8":
         print('the 8 bit image is showen')
         co.scale_percent(img,33)
@@ -43,15 +62,25 @@ def imshow(img):
         print("Error: the image has the wrong data type it must be either 8 bit or 16 bit")
     
 def invert(img):
-    
+    """invert the image
+
+    Parameter
+    ------------
+    img : 8-bit or 16-bit image 
+
+    Return
+    ------------
+    img_inv : 8-bit or 16-bit image 
+
+    """
     if img.dtype == "uint8":
         print('the 8 bit image is inverted')
-        imagem = (255-img)
+        img_inv = (255-img)
         return imagem
     elif img.dtype == 'uint16':
-        imagem = (65535 - img)
+        img_inv = (65535 - img)
         print('the 16 bit image is inverted')
-        return imagem
+        return img_inv
     else:
         print("Error: the image has the wrong data type it must be either 8 bit or 16 bit")
     
