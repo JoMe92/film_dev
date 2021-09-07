@@ -88,6 +88,17 @@ def invert(img):
 
 
 def hist(img):
+    """plot the histogram of the image
+
+    Parameter
+    ------------
+    img : 8-bit or 16-bit image 
+
+    Return
+    ------------
+
+    """
+
     color = ('b','g','r')
     if img.dtype == "uint8":
         for i,col in enumerate(color):
@@ -107,6 +118,20 @@ def hist(img):
         print("Error: the image has the wrong data type it must be either 8 bit or 16 bit")
 
 def scale_percent(img,scale_percent):
+    """downscale the image with a percentage value
+
+    Parameter
+    ------------
+    img : 
+
+    scale_percent : int
+        percent value 0% - 100 %
+
+    Return
+    ------------
+    return img_smal:
+        scaled down version of the image
+    """
     # scale_percent = 10 # percent of original size
     width = int(img.shape[1] * scale_percent / 100)
     height = int(img.shape[0] * scale_percent / 100)
@@ -117,6 +142,20 @@ def scale_percent(img,scale_percent):
 
 
 def auto_level(img, print_progress=False):
+    """Automatically adjust the brightness values of the image.
+
+    Parameter
+    ------------
+    img : 
+
+    print_progress : bool
+
+    Return
+    ------------
+    res : img
+        auto level image as uint 8 or uint 16
+    """
+
     if img.dtype == "uint8":
         print("Error")
         return 0
@@ -153,12 +192,30 @@ def auto_level(img, print_progress=False):
         return 0
     
 @jit(nopython=True)
-def apply_lut(table,image):
+
+
+def apply_lut(img, table):
+    """application of a look-up table to a image
+
+    Parameter
+    ------------
+    img : 
+
+    table : 
+
+    Return
+    ------------
+    res : img
+        image on which the lut was applied 
+    """
+
+
     # Todo with numpay !!!
     i = 0
     j = 0
-    img = image
-
+    
+    image = img
+    
     for i in np.arange(0, image.shape[0]-1, 1):
         
         for j in np.arange(0, image.shape[1]-1, 1 ):
@@ -172,6 +229,20 @@ def apply_lut(table,image):
 
 # Gamma Corecten with Lut
 def adjust_gamma(image, gamma=1.0):
+    """change the gamma value of the image via a lut
+
+    Parameter
+    ------------
+    img : 
+
+    gamma : int
+
+    Return
+    ------------
+    res : img
+        image on which the gamma was applied 
+    """
+
     # todo for 8 bit and 16 bit
     #uild a lookup table mapping the pixel values [0, 65535] to
     #heir adjusted gamma values
@@ -183,6 +254,23 @@ def adjust_gamma(image, gamma=1.0):
     return  img
 
 def load_images_from_folder(folder): 
+    """load all images of a given folder into a list
+
+    Parameter
+    ------------
+    folder : str
+        path to the folder
+
+    Return
+    ------------
+    images : img
+        a list containing the image data
+    
+     img_name : str
+        a list containing the image file name
+    """
+
+
     images = [] 
     img_name = []
         
