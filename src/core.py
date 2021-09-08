@@ -137,7 +137,7 @@ def scale_percent(img,scale_percent):
     height = int(img.shape[0] * scale_percent / 100)
     dim = (width, height)
     # resize image
-    img_smal = cv2.resized = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
+    img_smal = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
     return img_smal
 
 
