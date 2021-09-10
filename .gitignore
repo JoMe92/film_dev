@@ -137,3 +137,6 @@ tempCodeRunnerFile.py
 # images 
 # *.jpg
 
+*.tif
+*.tiff
+*.Tif

@@ -8,16 +8,16 @@ The range of commercially available software for editing input film material is 
 ## How to use 
 
 The initial image is the scan of a negative image. The image should be processed as little as possible. In Silverfast the image should be scanned as a 48 bit raw image to get an unprocessed negative image.
-![Text](img_neg.jpg)
+![Text](files\img_neg.jpg)
 
 The r-g-b sensitivity of the film depends on the used film stock, these chanels must be aligned.
 img_lev = src.core.auto_level(img_neg) 
 adjust the color channels of the image
 
-![Text](img_lev.jpg)
+![Text](files\img_lev.jpg)
 
 
 The negative image can then be inverted to obtain a positive image.
 
 
-![Text](img_pos.jpg)
+![Text](files\img_lev.jpg)
