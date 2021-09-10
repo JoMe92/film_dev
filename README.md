@@ -10,6 +10,7 @@ Contents
 
  * [Why?](#why)
  * [Main Task](#main-task)
+ * [Roadmap](#roadmap)
  * [Installation](#installation)
  * [Usage](#usage)
 
@@ -25,6 +26,14 @@ The range of commercially available software for editing film material is very l
 - Reading unprocessed 16-bit or 8-bit image Data 
 - applay all nesserery processing steps to get an positiv image
 - do some basic image processing 
+
+
+### Roadmap
+---
+
+- automatic cropping of the image
+- add frame to image
+- GUI to visualize the image processing steps
 
 ### Installation
 ---
