@@ -20,4 +20,4 @@ adjust the color channels of the image
 The negative image can then be inverted to obtain a positive image.
 
 
-![Text](files\img_lev.jpg)
+![Text](https://github.com/JoMe92/Film_Developing/blob/main/files/img_lev.jpg)
