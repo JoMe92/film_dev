@@ -1,6 +1,6 @@
 # Film-Developing
-<img src="https://github.com/JoMe92/Film_Developing/blob/main/files/1336252_0504a.jpg" align="right"
-     alt="img" width="245" height="164" >
+<img src="https://github.com/JoMe92/Film_Developing/blob/main/files/1336252_0504a.png" align="right"
+     alt="img" >
      
 `Film-Developing` allows you an easy processing of negatives film scan. It provides all the necessary image processing tools to develop images digitally.
 
