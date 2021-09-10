@@ -2,11 +2,11 @@ import cv2
 import numpy as np
 import src.core
 
-img_neg = cv2.imread("img.tif",-1) # load a 16-bit negative image
-img_neg = src.core.scale_percent(img_neg,5) # downscale to 50% of the image size
+img_neg = cv2.imread("Test.tiff",-1) # load a 16-bit negative image
+img_neg = src.core.scale_percent(img_neg,3) # downscale to 50% of the image size
 img_lev = src.core.auto_level(img_neg) # Auto adjust the r,g,b chanell of the image to match the collor chanels
 img_pos = src.core.invert(img_lev) # invert the leveled image
-img_gamma = src.core.gamma(img_pos,3)
+# img_gamma = src.core.gamma(img_pos,3)
 
 # save the image as 8 bit jpg file
 cv2.imwrite("img_neg.jpg", src.core.img16to8(img_neg))

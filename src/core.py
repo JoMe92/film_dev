@@ -228,8 +228,8 @@ def apply_lut(img, table):
     return img
 
 # Gamma Corecten with Lut
-def adjust_gamma(image, gamma=1.0):
-    """change the gamma value of the image via a lut
+def gamma(image, gamma=1.0):
+    """change the gamma value of the 16-bit image via a lut
 
     Parameter
     ------------
@@ -246,8 +246,7 @@ def adjust_gamma(image, gamma=1.0):
     # todo for 8 bit and 16 bit
     #uild a lookup table mapping the pixel values [0, 65535] to
     #heir adjusted gamma values
-    table = np.array([((i / 65535.0) ** gamma) * 65535 
-                      for i in np.arange(0, 65536)]).astype("uint16")
+    table = np.array([((i / 65535.0) ** gamma) * 65535 for i in np.arange(0, 65536)]).astype("uint16")
     # apply gamma correction using the lookup table
     img = apply_lut(table,image)
     

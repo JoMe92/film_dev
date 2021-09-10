@@ -132,3 +132,8 @@ dmypy.json
 # files
 tempCodeRunnerFile.py
 .vscode/launch.json
+
+
+# images 
+# *.jpg
+
