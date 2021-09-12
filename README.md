@@ -11,9 +11,8 @@ Contents
  * [Why?](#why)
  * [Main Task](#main-task)
  * [Roadmap](#roadmap)
- * [Installation](#installation)
  * [Usage](#usage)
-
+ <!--- * [Installation](#installation) --->
 
 ### Why?
 ---
@@ -35,10 +34,10 @@ The range of commercially available software for editing film material is very l
 - add frame to image
 - GUI to visualize the image processing steps
 
-### Installation
----
+ <!--- ### Installation --->
 
-Download the `Film-Developing` from Releases tab.
+
+ <!---  Download the `Film-Developing` from Releases tab. --->
 
 ### Usage 
 ---
