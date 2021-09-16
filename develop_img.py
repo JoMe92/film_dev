@@ -7,7 +7,7 @@ import src.core
 
 
 img_neg = cv2.imread(r"C:\Users\jonas\Development\film_dev\img14.tif",-1) # load a 16-bit negative image
-img_neg = src.core.scale_percent(img_neg,33) # downscale to 50% of the image size
+img_neg = src.core.scale_percent(img_neg,20) # downscale to 50% of the image size
 img_lev = src.core.auto_level(img_neg) # Auto adjust the r,g,b chanell of the image to match the collor chanels
 img_pos = src.core.invert(img_lev) # invert the leveled image
 # img_gamma = src.core.gamma(img_pos,3)
