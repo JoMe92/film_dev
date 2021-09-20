@@ -310,3 +310,26 @@ def load_images_from_folder(folder):
             img_name.append(filename)
             
     return images, img_name
+
+
+def level_img(img,min_level,max_level):
+    '''Level an image 
+    
+    Parameter
+    ------------
+    img : np.array
+    
+    min_level : int
+
+    max_level : max_level
+
+    Return
+    ------------
+    img : img
+
+    '''
+
+    img[img < min_level] = min_level # set all indices where value is less than min_level to min_level
+    img[img > max_level] = max_level # set all indices where value is less than min_level to min_level
+
+    return img
