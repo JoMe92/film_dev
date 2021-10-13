@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import test
 import src.core
+import src.noise
 
 
 
@@ -18,3 +19,7 @@ cv2.imwrite("files\\img_lev.jpg", src.core.img16to8(img_lev))
 cv2.imwrite("files\\img_pos.jpg", src.core.img16to8(img_pos))
 # cv2.imwrite("img_gamma.jpg", src.core.img16to8(img_gamma))
 print("end")
+
+
+img_nois = src.noise.noisy("gauss", src.core.img16to8(img_pos))
+cv2.imwrite("files\\img_noise.jpg", img_nois)
