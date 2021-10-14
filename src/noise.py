@@ -43,3 +43,17 @@ def noisy(noise_typ,image):
         gauss = gauss.reshape(row,col,ch)        
         noisy = image + image * gauss
         return noisy
+
+
+    def sharpen(sharpening_typ,img):
+        '''Sharpen the image
+        
+        '''
+
+        if sharpening_typ == "filter2D":
+            kernel = np.array([[0, -1, 0],
+                   [-1, 5,-1],
+                   [0, -1, 0]])
+
+            img_sharp = cv2.filter2D(src=img, ddepth=-1, kernel=kernel)
+            return img_sharp
